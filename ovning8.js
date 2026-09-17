@@ -1,24 +1,26 @@
-function range(start, end, step = 1){
-    let lista = [];
-    if(step > 0){
-        for(; start <= end; start += step)
-        lista.push(start);
+let myArray = ["A", "B", "C"];
+let arrayValue = [1, 2, 3, 4 ,5];
+
+function reverseArray(myArray){
+    let newArray = [];
+    for(let symbol of myArray){
+        newArray.unshift(symbol);
     }
-    else if(step < 0){
-        for(; start >= end; start += step)
-        lista.push(start);
-    }
-    return lista;
+    return newArray;
 }
 
-function sum(lista){
-    let total = 0;
-    for(let tal of lista){
-        total = total + tal;
+function reverseArrayInPlace(arrayValue){
+    for(let i = 0; i < Math.floor((arrayValue.length) / 2); i++){
+        let saved = arrayValue[i];
+        arrayValue[i] = arrayValue[arrayValue.length - 1 - i];
+        arrayValue[arrayValue.length - 1 - i] = saved;
     }
-    return total;
 }
 
-console.log(range(1, 10));
-console.log(range(5, 2, -1));
-console.log(sum(range(1, 10)));
+
+console.log(reverseArray(myArray));
+console.log(myArray);
+
+reverseArrayInPlace(arrayValue);
+console.log(arrayValue);
+
